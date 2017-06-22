@@ -1,0 +1,66 @@
+.main-nav__list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	// Flexbox
+	display: flex;
+	flex-direction: column;
+}
+
+.main-nav__link {
+	display: block;
+	padding: 1px;
+	
+
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	color: #333333;
+
+	&:hover {
+		color: #ffffff;
+		background-color: #333333;
+	}
+}
+
+@media @tablet-widths {
+	.main-nav__list {
+		flex-direction: row;
+	}
+
+	.main-nav__link {
+		padding: 25px 20px;
+		padding-top: 35px;
+		padding-bottom: 15px;
+
+		opacity: 0.6;
+		background-repeat: no-repeat;
+		background-size: 25px 18px;
+		background-position: center 12px;
+
+		&:hover {
+			background-color: #eeeeee;
+			color: #000000;
+		}
+
+		&--question {
+			background-image: url("../../img/icons/i-question.svg");
+		}
+
+		&--form {
+			background-image: url("../../img/icons/i-form.svg");
+		}
+
+		&--undersirable {
+			background-image: url("../../img/icons/i-exclamation.svg");
+		}
+
+		&--info {
+			background-image: url("../../img/icons/i-form.svg");
+		}
+	}
+}

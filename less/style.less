@@ -1,0 +1,156 @@
+@import "scaffolding.less";
+@import "mixins.less";
+@import "variables.less";
+
+@import "blocks/page-header.less";
+@import "blocks/main-nav.less";
+@import "blocks/page-main.less";
+@import "blocks/broadcast.less";
+@import "blocks/page-footer.less";
+
+html, body {
+	height: 100%;
+}
+
+.page-wrapper {
+	// Блочная модель
+	min-height: 100vh;
+
+	// Flexbox
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-content {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	z-index: 10;
+
+	display: none;
+	width: 80vw;
+	max-width: 600px;
+	transform: translateX(-50%);
+	padding: 5px 30px;
+
+	background-color: #ffffff;
+	border-radius: 4px;
+
+	&--show {
+		display: block;
+	}
+}
+
+.modal-content__close {
+	position: absolute;
+	right: -15px;
+	top: -15px;
+
+	width: 27px;
+	height: 27px;
+
+	font-size: 0;
+
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+	background-color: #000000;
+	cursor: pointer;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 4px;
+		right: 4px;
+
+		height: 2px;
+		margin-top: -1px;
+
+		background-color: #ffffff;
+	}
+
+	&::before {
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-45deg);
+	}
+}
+
+.modal-preinf {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	z-index: 10;
+
+	display: none;
+	width: 80vw;
+	max-width: 600px;
+	transform: translateX(-50%);
+	padding: 5px 30px;
+
+	background-color: #ffffff;
+	border-radius: 4px;
+
+	&--show {
+		display: block;
+	}
+}
+
+.modal-preinf__close {
+	position: absolute;
+	right: -15px;
+	top: -15px;
+
+	width: 27px;
+	height: 27px;
+
+	font-size: 0;
+
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+	background-color: #000000;
+	cursor: pointer;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 4px;
+		right: 4px;
+
+		height: 2px;
+		margin-top: -1px;
+
+		background-color: #ffffff;
+	}
+
+	&::before {
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-45deg);
+	}
+}
+
+
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+
+	display: none;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0, 0, 0, 0.9);
+	cursor: pointer;
+
+	&--show {
+		display: block;
+	}
+}
