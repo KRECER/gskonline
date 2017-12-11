@@ -12,13 +12,14 @@ var svgmin = require('gulp-svgmin');
 var svgstore = require('gulp-svgstore');
 var run = require('run-sequence');
 var del = require('del');
+var ftp = require('vinyl-ftp');
 
 gulp.task('style', function() {
 	gulp.src('less/style.less')
 		.pipe(plumber())
 		.pipe(less())
 		.pipe(postcss([
-			autoprefixer({browsers: ['last 1 version','last 2 Chrome versions','last 2 Firefox versions','last 2 Opera versions','last 2 Edge versions']}),
+			autoprefixer({browsers: ['last 10 versions']}),
 			mqpacker({sort: true})
 		]))
 
@@ -71,4 +72,26 @@ gulp.task('clean', function() {
 
 gulp.task('build' ,function(fn) {
 	run('clean', 'copy', 'style', 'images', 'symbols', fn);
+});
+
+//ftp 
+gulp.task('send', function() {
+	var conn = ftp.create({
+		host: 'ftp.s44.freehost.com.ua',
+		user: 'gskonline',
+		password: 'YazdWiNeb1',
+		parallel: 5
+	});
+
+	 var globs = [
+        './**',
+        '!node_modules',
+        '!files'
+    ];
+
+
+
+	return gulp.src( globs, { base: '.', buffer: false } )
+        .pipe( conn.newer( '/' ) )  
+        .pipe( conn.dest( '/' ) );
 });
